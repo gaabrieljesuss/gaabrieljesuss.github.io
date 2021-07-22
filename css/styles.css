@@ -75,7 +75,7 @@ nav ul li a:hover {
 nav ul button {
   border: 1px solid var(--blue);
   background: transparent;
-  padding: 8px 40px;
+  padding: 5px 40px;
   cursor: pointer;
   margin-left: 30px;
   color: var(--blue);
