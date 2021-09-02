@@ -15,7 +15,6 @@
           <ul>
             <li><a href="#catalog">Catálogo</a></li>
             <li><a href="#about">Sobre</a></li>
-            <li><button type="button">Login</button></li>
           </ul>
         </nav>
         <div class="header-block">
@@ -114,12 +113,56 @@
             </div>
           </div>
           <div class="footer-contact">
-            <h4>Contate-Nos</h4>
-            <h6>+55 82 998443920</h6>
-            <h6>gjs8@aluno.ifal.edu.br</h6>
+            <form name="meu_form" id = "formContato">
+
+              <h1 id="h1Contato">Entre em contato</h1>
+              
+              <input type="text" id="nomeid" placeholder="Gabriel de Jesus" name="nome" />
+              <label for="nome">Nome</label><br>
+              
+              <input type="text" id="emailid" placeholder="fulano@mail.com" name="email" />
+              <label for="email">Email</label><br>
+              <textarea id = "textContato"placeholder="Deixe sua Mensagem"></textarea><br>
+
+              <input type="submit" class="enviar" id="buttonContato"onclick="Enviar();" value="Enviar" />
+            </form>
           </div>
         </div>
       </div>
     </footer>
   </body>
+  <script>
+    function Enviar() {
+
+    var nome = document.getElementById("nomeid");
+    var email = document.getElementById("emailid");
+    var valido = false;
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    function Submit(event) {
+      
+      if(nome.value == ""){
+        alert("Digite um Nome!");
+      }
+      if(email.value.match(mailformat)){
+        valido = true;
+      }else{
+        valido = false;
+        alert("Digite um E-mail correto!");
+      }
+      
+      if (nome.value != "" && valido == true){
+      
+        alert('Obrigado sr(a) ' + nome.value + ' os seus dados foram encaminhados com sucesso');
+      }
+      location.reload()
+    }
+
+    const form = document.getElementById('formContato');
+
+    form.addEventListener('submit', Submit);
+
+    
+
+    }
+  </script>
 </html>
